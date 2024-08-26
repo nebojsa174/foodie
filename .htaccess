@@ -1,0 +1,10 @@
+RewriteEngine ON
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+
+RewriteRule ^(.*)$ $1.php [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ details.php?name_url=$1 [QSA,L]
